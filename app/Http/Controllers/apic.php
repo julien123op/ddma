@@ -46,7 +46,7 @@ class apic extends Controller
                 $irpp=$irpp+4500+216999.93+299999.85;
             }
             if ((10000001<$salaire)<=15000000){
-                $irpp=($salaire-10000001)*35/100;
+                $irpp=($salaire-10000001)*30/100;
                 $irpp=$irpp+4500+216999.93+299999.85+999999.75;
             }
             if ($salaire>15000001){
@@ -54,9 +54,9 @@ class apic extends Controller
                 $irpp=$irpp+4500+216999.93+299999.85+999999.75+1749999.65;
             }  
             // $retirpp = $irpp/12;
-            // if ($retirpp<3000){
-            //     $retirpp=3000;
-            // }
+            // if ($retirpp<3000){ 
+            //     $retirpp=3000;  
+            // } 
             
             $nap = $salairebrut-$retCnss-$irpp;
             return response()
@@ -66,6 +66,21 @@ class apic extends Controller
             ],200
             );
 
+        }
+    }
+    function grade($id){
+        $data=DB::table('employe')
+        ->select('sab','primeA','primeL','ifd')
+        ->where('matricule',$id)
+        ->get();
+        foreach($data as $data){
+            if ($data->grade='GRADE 1'){
+                $data->sab=150000;
+                $data->primeL=25000;
+                $data->ifd=30000;
+            }
+        
+        
         }
     }
 }

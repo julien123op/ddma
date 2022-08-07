@@ -1,11 +1,10 @@
 @extends('Layout.master')
 @section('content')
-    <title>PGI-PAYE | Charges patronales </title>
+    <title>PGI-PAYE | Notes attribuées</title>
     @endsection
-
-    @section('contenu')
-            <!-- ./ Logo -->
-            <div class="page-title">Liste des charges patronale</div>
+    
+    @section('contenu')   <!-- ./ Logo -->
+            <div class="page-title">Notes attribuées</div>
            
 
             <!-- Header mobile buttons -->
@@ -32,31 +31,38 @@
                                 <thead>
                                 <tr>
                                         <th>Matricule</th>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>Poste</th>
-                                        <th>Numero de compte</th>
-                                        <th>Charge patronale</th>
-                                    </tr>
+                                        <th>Note donnée</th>    
+                                         
                                 </thead>
                                 <tbody>
-                                    @foreach($cpaemp as $cpaemp)
-                                    <tr>
-                                        <td>{{$cpaemp->matricule}}</td>
-                                        <td>{{$cpaemp->nom}}</td>
-                                        <td>{{$cpaemp->prenom}}</td>
-                                        <td>{{$cpaemp->poste}}</td>
-                                        <td>{{$cpaemp->n_compte}}</td>
-                                        <td>{{$cpaemp->charp}}</td>
+                                    {{--  --}}
+                                    
+                                       
+                                    
+                                    @foreach($noteboss as $noteboss)
+                                    {{-- @if(Session::get('echec')) 
+                                    <div class="alert alert-danger">
+                                            <p>{{Session::get('echec')}}</p>
+                                    </div>
+                                    @endif
+                                    <tr><form class="row g-3" method="POST" action="/sup">
+                                        @csrf --}}
+                                        <td>{{$noteboss->employe_id}}</td>
+                                        <td>{{$noteboss->notefinale}}</td>
+                                        
                                     </tr>
                                     @endforeach
-                                   
+                                
+                                
                                 </tbody>
                                 
                             </table>
+                           
                         </div>
 
                     </div>
                 </div>
             </div>
+            
+                
             @endsection

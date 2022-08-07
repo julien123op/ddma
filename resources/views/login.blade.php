@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> DD-M.A. | Connexion </title>
+    <title> PGI-PAYE | Connexion </title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png"/>
@@ -48,15 +48,15 @@
                                         <input style="border-color:rgb(11, 13, 150) "  type="password" name="mdp" class="form-control" placeholder="Entrez votre mot de passe"
                                                required>
                                     </div>
-                                    <div style="float:left" class="mb-3">
-                                        <button style="box-align: center; background-color:rgb(11, 13, 150)  ;border-color:rgb(11, 13, 150) " type="submit" class="btn btn-primary">Se connecter</button>
+                                    <div class="text-center ">
+                                        <button style="background-color:rgb(11, 13, 150) ;border-color:rgb(11, 13, 150)" type="submit" class="btn btn-primary">Se connecter</button>
                                     </div>
                                 </form>
-                                <div class="text-center text-lg-start mb-3">
+                                <div class="text-center">
                                     
-                                    <a href="/login-employe" class="dropdown-item d-flex align-items-center ">
+                                    <a href="/login-employe">
                                         
-                                        <button style="box-align: center; background-color:rgb(11, 13, 150)  ;border-color:rgb(11, 13, 150); text-decoration-color: blue" type="submit" class="btn btn-primary"><span>Se connecter en tant qu'employé</button>
+                                        <button style="box-align: center; background-color:rgb(11, 13, 150)  ;border-color:rgb(11, 13, 150); text-decoration-color: blue" type="submit" class="btn btn-primary"><span>Se connecter en tant qu'utilisateur</button>
                                         {{-- <i class="bi bi-box-arrow-right dropdown-item-icon"></i> deconnexion --}}
                                     </a>
                     </div>
@@ -70,7 +70,7 @@
 
                         <div>
                             <a href="/" class="logo">
-                                <img  src="http://ddmatg.com/images/logo-2.png" alt="ddma" width="400" height="170">
+                                <img src="{{ asset('logo.pgipaie.png') }}" alt="pgipaie" width="400" height="200">
                             </a>
                         </div>
 :                            
@@ -80,179 +80,179 @@
         </div>
     </div>
     @if(Session::get('sessionRHC'))
-    <li>
-        <a href="#">
-            <span class="nav-link-icon">
-                <i class="bi bi-person-circle"></i>
-            </span>
-            <span>Etat recapitulatif</span>
-        </a>
-        <ul>
-            <li><a  href="/liste-des-charge-patronale">Charge patronal</a></li>
-            <li><a  href="/liste-des-cnss">CNSS</a></li>
-            <li><a  href="/liste-des-irpp">IRRP</a></li>
+                <li>
+                    <a href="#">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-person-circle"></i>
+                        </span>
+                        <span>Etat recapitulatif</span>
+                    </a>
+                    <ul>
+                        <li><a  href="/liste-des-charge-patronale">Charge patronal</a></li>
+                        <li><a  href="/liste-des-cnss">CNSS</a></li>
+                        <li><a  href="/liste-des-irpp">IRRP</a></li>
+                        
+                    </ul>
             
-        </ul>
-
-        <a href="/demande-conge">
-            <span class="nav-link-icon">
-                <i class="bi bi-person-circle"></i>
-            </span>
-            <span>Demande de congé</span>
-        </a>
-    </li>
-  
-    @endif
-
-    @if(Session::get('sessionDRH'))
-    <li>
-        <a href="#">
-            <span class="nav-link-icon">
-                <i class="bi bi-person-badge "></i>
-            </span>
-            <span>Employé</span>
-        </a>
-        <ul>
+                    <a href="/demande-conge">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-person-circle"></i>
+                        </span>
+                        <span>Demande de congé</span>
+                    </a>
+                </li>
+              
+                @endif
+            
+                @if(Session::get('sessionDRH'))
+                <li>
+                    <a href="#">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-receipt "></i>
+                        </span>
+                        <span>Etat récapitulatif</span>
+                    </a>
+                    <ul>
+                        <li>
+                              <li><a href="/liste-des-bulletins">Bulletins de paie</a></li>
+                              <li><a  href="/liste-des-charge-patronale">Charge patronale</a></li>
+                              <li><a  href="/liste-des-cnss">CNSS</a></li>
+                              <li><a  href="/liste-des-irpp">IRRP</a></li>
+                        
+                        </li>
+                    </ul></li><li>   
+                    <a href="#">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-person-badge "></i>
+                        </span>
+                        <span>utilisateur</span>
+                    </a>
+                    <ul>
+                        <li>
+                              <li>
+                              <a  href="/liste-des-employes">Liste des utilisateurs</a>
+                              </li>
+            
+                              
+                              <li>
+                              <a  href="/ajouter-employer">Ajouter un utilisateur</a>
+                              </li>
+                           
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="nav-link-icon">
+                                    <i class="bi bi-receipt"></i>
+                                </span>
+                                <span>Conge</span>
+                            </a>
+                            <ul>
+                                <li><a  href="/liste-des-demandes-de-conges">Liste des demandes</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                 
+                </li>
+               <li><a href="/liste-personnel">
+                <span class="nav-link-icon">
+                    <i class="bi bi-person-circle "></i>
+                </span>
+                <span>Liste du personnel</span>
+            </a></li>
+                @endif    
+                @if (Session::get('sessionemp'))
+                <li>
+                    <a  href="/bulletin">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-receipt"></i>
+                        </span>
+                        <span>Bulletin de paie</span>
+                    </a>
+                </li>
+                
+                </li>
+                <li>
+                    <a  href="/demande-conge">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-receipt"></i>
+                        </span>
+                        <span>Demande de congé</span>
+                    </a>
+                </li>
+            @endif
+            @if(Session::get('sessionRootall'))
             <li>
-                  <li><a  href="liste-des-charge-patronale">Charge patronale</a></li>
-
-                  <li>
-                  <a  href="/liste-des-employes">Liste des employes</a>
-                  </li>
-
-                  
-                  <li>
-                  <a  href="/ajouter-employer">ajouter des employes</a>
-                  </li>
+                    <a href="#">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-receipt"></i>
+                        </span>
+                        <span>Etat recapitulatif</span>
+                    </a>
+                    <ul>
+                        <li><a  href="/liste-des-charge-patronale">Charge patronal</a></li>
+                        <li><a  href="/liste-des-cnss">CNSS</a></li>
+                        <li><a  href="/liste-des-irpp">IRRP</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-person-badge "></i>
+                        </span>
+                        <span>utilisateur</span>
+                    </a>
+                    <ul>
+                        <li>
+                              <a  href="/liste-des-employes">Liste des utilisateurs</a>
+                              </li>
+                              <li>
+                              <a  href="/ajouter-employer">Ajouter des utilisateurs</a>
+                              </li>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="nav-link-icon">
+                                    <i class="bi bi-receipt"></i>
+                                </span>
+                                <span>Conge</span>
+                            </a>
+                            <ul>
+                                <li><a  href="/liste-des-demandes-de-conges">Liste des demandes</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a  href="#">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-person-circle"></i>
+                        </span>
+                        <span>Personnel</span>
+                    </a>
+                    <ul>
+                        <li>
+                              <a  href="/liste-personnel">Liste du personnel</a>
+                              </li>
+                              <li>
+                              <a  href="/ajouter-personnel">Ajouter du personnel</a>
+                              </li>
+                        </li>
+                    </ul>
+                </li>
+                {{-- <li>
+                    <a  href="/parametre">
+                        <span class="nav-link-icon">
+                            <i class="bi bi-gear"></i>
+                        </span>
+                        <span>Parametres</span>
+                    </a>
+                </li> --}}
+                
                
-            </li>
-            <li>
-                <a href="#">
-                    <span class="nav-link-icon">
-                        <i class="bi bi-person-circle"></i>
-                    </span>
-                    <span>Conge</span>
-                </a>
-                <ul>
-                    <li><a  href="/liste-des-demandes-de-conges">Liste des demandes</a></li>
-                    
-                </ul>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <a  href="/bulletin">
-            <span class="nav-link-icon">
-                <i class="bi bi-receipt"></i>
-            </span>
-            <span>Bulletin de paie</span>
-        </a>
-        {{-- <ul>
-            <li><a  href="user-list.html">Liste des bulletins de paies</a></li>
-
-            <li>
-                <a href="invoice-detail.html"
-                   >Detail</a>
-            </li>
-        </ul> --}}
-    </li>
-   <ul><a href="/liste-personnel">
-    <span class="nav-link-icon">
-        <i class="bi bi-person-badge "></i>
-    </span>
-    <span>Liste du personnel</span>
-</a></ul>
-    @endif    
-    @if (Session::get('sessionemp'))
-    <li>
-        <a  href="/detail-bulletin">
-            <span class="nav-link-icon">
-                <i class="bi bi-receipt"></i>
-            </span>
-            <span>Bulletin de paie</span>
-        </a>
-    </li>
-    <li>
-        <a  href="/demande-conge">
-            <span class="nav-link-icon">
-                <i class="bi bi-receipt"></i>
-            </span>
-            <span>Demande de congé</span>
-        </a>
-    </li>
-@endif
-@if(Session::get('sessionRootall'))
-<li>
-        <a href="#">
-            <span class="nav-link-icon">
-                <i class="bi bi-person-circle"></i>
-            </span>
-            <span>Etat recapitulatif</span>
-        </a>
-        <ul>
-            <li><a  href="/liste-des-charge-patronale">Charge patronal</a></li>
-            <li><a  href="/liste-des-cnss">CNSS</a></li>
-            <li><a  href="/liste-des-irpp">IRRP</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#">
-            <span class="nav-link-icon">
-                <i class="bi bi-person-badge "></i>
-            </span>
-            <span>Employé</span>
-        </a>
-        <ul>
-            <li>
-                  <a  href="/liste-des-employes">Liste des employes</a>
-                  </li>
-                  <li>
-                  <a  href="/ajouter-employer">Ajouter des employes</a>
-                  </li>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="nav-link-icon">
-                        <i class="bi bi-person-circle"></i>
-                    </span>
-                    <span>Conge</span>
-                </a>
-                <ul>
-                    <li><a  href="/liste-des-demandes-de-conges">Liste des demandes</a></li>
-                    
-                </ul>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <a  href="/parametre">
-            <span class="nav-link-icon">
-                <i class="bi bi-gear"></i>
-            </span>
-            <span>Parametres</span>
-        </a>
-    </li>
-    <li>
-        <a  href="#">
-            <span class="nav-link-icon">
-                <i class="bi bi-gear"></i>
-            </span>
-            <span>Personnel</span>
-        </a>
-        <ul>
-            <li>
-                  <a  href="/liste-personnel">Liste du personnel</a>
-                  </li>
-                  <li>
-                  <a  href="/ajouter-personnel">Ajouter du personnel</a>
-                  </li>
-            </li>
-        </ul>
-    </li>
-   
-@endif
-   
-
+            @endif
 
 
 <!-- Bundle scripts -->

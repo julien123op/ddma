@@ -1,11 +1,11 @@
 @extends('Layout.master')
 @section('content')
-    <title>PGI-PAYE | Charges patronales </title>
+    <title>PGI-PAYE | Curriculum Vitae </title>
     @endsection
 
     @section('contenu')
             <!-- ./ Logo -->
-            <div class="page-title">Liste des charges patronale</div>
+            <div class="page-title">Liste des Curriculum Vitae</div>
            
 
             <!-- Header mobile buttons -->
@@ -32,22 +32,18 @@
                                 <thead>
                                 <tr>
                                         <th>Matricule</th>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>Poste</th>
-                                        <th>Numero de compte</th>
-                                        <th>Charge patronale</th>
+                                        <th>Formation</th>
+                                        <th>Connaissances informatiques</th>
+                                        <th>Compétences</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($cpaemp as $cpaemp)
+                                    @foreach($cvemp as $cvemp)
                                     <tr>
-                                        <td>{{$cpaemp->matricule}}</td>
-                                        <td>{{$cpaemp->nom}}</td>
-                                        <td>{{$cpaemp->prenom}}</td>
-                                        <td>{{$cpaemp->poste}}</td>
-                                        <td>{{$cpaemp->n_compte}}</td>
-                                        <td>{{$cpaemp->charp}}</td>
+                                        <td>{{$cvemp->employe_matricule}}</td>
+                                        <td>{{$cvemp->formation}}</td>
+                                        <td>{{$cvemp->connaissance_info}}</td>
+                                        <td>{{$cvemp->competences}}</td>
                                     </tr>
                                     @endforeach
                                    

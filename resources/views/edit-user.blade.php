@@ -1,10 +1,10 @@
 @extends('Layout.master')
 @section('content')
-    <title> PGI-PAYE | Ajout d'utilisateur </title>
+    <title> PGI-PAYE | Modifier un utilisateur </title>
     @endsection
     @section('contenu')
             <!-- ./ Logo -->
-            <div class="page-title">Enregistrer un utilisateur</div>
+            <div class="page-title">Modifier un utilisateur</div>
             <!-- Header mobile buttons -->
             <div class="header-mobile-buttons">
                 <a href="#" class="search-bar-btn">
@@ -29,37 +29,38 @@
                                     <p>{{Session::get('echec')}}</p>
                             </div>
                             @endif
-                            <form class="row g-3" method="POST" action="/addemp">
+                            @foreach($modemp as $modemp)
+                            <form class="row g-3" method="POST" action="/mod">
                                 @csrf
                                
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Nom</label>
-                                    <input name="nom" type="text" class="form-control" id="inputEmail4">
+                                    <input name="nom" type="text" class="form-control" id="inputEmail4" value="{{$modemp->nom}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label">Prenom</label>
-                                    <input name="prenom" type="text" class="form-control" id="inputPassword4">
+                                    <input name="prenom" type="text" class="form-control" id="inputPassword4" value="{{$modemp->prenom}}">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputState" class="form-label">sexe</label>
+                                    <label for="inputState" class="form-label">Sexe</label>
                                     <select required name="sexe" id="inputState" class="form-select">
-                                        <option selected>choisir...</option>
+                                        <option selected>{{$modemp->sexe}}</option>
                                         <option value="Masculin">Masculin</option>
                                         <option value="Feminin">Feminin</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label">E-mail</label>
-                                    <input name="email" type="email" class="form-control" id="inputPassword4">
+                                    <input name="email" type="email" class="form-control" id="inputPassword4" value="{{$modemp->email}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputState" class="form-label">Poste</label>
-                                    <input name="poste" type="text" class="form-control" id="inputAddress2">
+                                    <input name="poste" type="text" class="form-control" id="inputAddress2" value="{{$modemp->poste}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputState" class="form-label">Contrat</label>
-                                    <select required name="contrat" id="inputState" class="form-select">
-                                        <option selected>choisir...</option>
+                                    <select required name="contrat" id="inputState" class="form-select" >
+                                        <option selected>{{$modemp->contrat}}</option>
                                         <option value="CDD">CDD</option>
                                         <option value="CDI">CDI</option>
                                         <option value="PRESTATAIRE">PRESTATAIRE</option>
@@ -70,7 +71,7 @@
                                     <label for="inputState" class="form-label">situation matrimoniale</label>
                                     <select required name="sm" id="inputState" class="form-select">
                                         
-                                        <option selected>choisir...</option>
+                                        <option selected>{{$modemp->sm}}</option>
                                         <option value="celibataire sans enfants">Célibataire sans enfants</option>
                                         <option value="celibataire avec enfants">Célibataire avec enfants</option>
                                         <option value="Marié">Marié</option>
@@ -78,27 +79,27 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Nombre d'enfant</label>
-                                    <input name="nbenfant" type="number" class="form-control" id="inputEmail4">
+                                    <input name="nbenfant" type="number" class="form-control" id="inputEmail4" value="{{$modemp->nbenfant}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label">Date de prise de fonction</label>
-                                    <input name="date" type="date" class="form-control" id="inputPassword4">
+                                    <input name="date" type="date" class="form-control" id="inputPassword4" value="{{$modemp->date}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label">Numero fiscal</label>
-                                    <input name="nfiscal" type="number" class="form-control" id="inputPassword4">
+                                    <input name="nfiscal" type="number" class="form-control" id="inputPassword4" value="{{$modemp->nfiscal}}">
                                 </div>
                                  <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label">Domiciliation</label>
-                                    <input name="domicile" type="text" class="form-control" id="inputPassword4">
+                                    <input name="domicile" type="text" class="form-control" id="inputPassword4" value="{{$modemp->domicile}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress" class="form-label">Numero du compte</label>
-                                    <input name="ncompte" type="number" class="form-control" id="inputAddress">
+                                    <input name="ncompte" type="number" class="form-control" id="inputAddress" value="{{$modemp->ncompte}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress" class="form-label">Numero CNSS</label>
-                                    <input name="ncnss" type="number" class="form-control" id="inputAddress">
+                                    <input name="ncnss" type="number" class="form-control" id="inputAddress" value="{{$modemp->ncnss}}">
                                 </div>
                             
         {{-- @foreach($data as $data){
@@ -117,7 +118,7 @@
                                     <label for="inputState" class="form-label">Grade </label>
                                     <select required name="grade" id="inputState" class="form-select">
                                         
-                                        <option selected>choisir...</option>
+                                        <option selected>{{$modemp->grade}}</option>
                                         <option value="1">Grade 1</option>
                                         <option value="2">Grade 2</option>
                                         <option value="3">Grade 3</option>
@@ -147,9 +148,10 @@
                                     </div> --}}
                                  </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                    <button type="submit" class="btn btn-primary" onclick="confirmations()">Modifier</button>
                                 </div>
                             </form>
+                            @endforeach
                             
                         </div>
                     </div>

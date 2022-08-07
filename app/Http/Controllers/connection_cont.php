@@ -18,29 +18,25 @@ class connection_cont extends Controller
         $user = DB::table('personnel')->where([ 
             'nom' => $req->nom 
         ])->first();
-
-
         if ($user) {
             if (Hash::check($req->mdp, $user->mdp)) {
-                if ($user->role == "RH" || $user->role == "Comptable") { 
-
+                if ($user->role == "RH" || $user->role == "Comptable") {  
                     $req->session()->put('sessionRHC', $user->id);
-                    return view('index');
-                }
+                    return view('index', compact('user')); 
+                } 
                 if ($user->role == "root") {
                     $req->session()->put('sessionRootall', $user->id);
-                    return view('index');
+                    return view('index', compact('user'));
                 }
                 if ($user->role == "DRH") {
                     $req->session()->put('sessionDRH', $user->id);
-                    return view('index');
+                    return view('index', compact('user'));
                 }
-                // if ($user->role == "employe") {
-                //     $req->session()->put('sessionemp', $user->id);
-                //     return view('index');
-                // }
                 $req->session()->put('sessionok', $user->id);
-                return view('index');
+
+                $user = DB::table('personnel')->where([ 
+                    'nom' => $req->nom])->get();
+                return view('index', compact('user'));
             } else {
                 return back()->with('error', 'mot de passe incorrect ou invalide');
             }
@@ -65,14 +61,24 @@ class connection_cont extends Controller
         return response()->json($vc);
     }
     function connemp(Request $req){
-        $user = DB::table('employe')->where([ 
-            'matricule' => $req->mat 
+        $user = DB::table('bulletins')->where([ 
+            'nom' => $req->nom 
         ])->first();
-        // if ($user) {
-            // $req->session()->put('sessionemp', $user->matricule);
-            return view('invoice-detail', compact('user'));
-        }
+        if ($user) {
+            if ($user) {
+                $req->session()->put('sessionemp', $user->nom);
+                $user = DB::table('bulletins')->where([ 
+                    'nom' => $req->nom 
+                ])->get();
+                return view('invoice-detail', compact('user'));
+            }
+            else {
+                    return back()->with('error', 'le nom existe pas');
+                }
 
-    // }
+    }
+    
+}
+
 }
 

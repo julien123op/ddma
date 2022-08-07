@@ -1,9 +1,9 @@
 @extends('Layout.master')
 @section('content')
-    <title>PGI-PAYE | Liste des demandes de congés </title>
+    <title>PGI-PAYE | Liste des demandes de permissions </title>
     @endsection
     @section('contenu')
-    <div class="page-title">Liste des demandes de congés</div>
+    <div class="page-title">Liste des demandes de permissions</div>
     <form class="search-form">
         <div class="input-group">
             <button class="btn btn-outline-light" type="button" id="button-addon1">
@@ -43,7 +43,7 @@
                                         <p>{{Session::get('echec')}}</p>
                                 </div>
                                 @endif
-                            <table id="datatable" class="table"  >
+                            <table id="datatable-exemple" class="table table-striped table-bordered nowrap"  >
                                 <div class="col-xs-2">
                                      <thead>
                                     
@@ -51,15 +51,18 @@
                                             <th>Identifiant</th>                     
                                             <th>Nom</th>
                                             <th>Prenom</th>
-                                            <th>Type</th>
+                                            {{-- <th>Type</th> --}}
                                             <th>Motif</th>
+                                            <th>Début</th>
+                                            <th>Fin</th>
                                             <th>Choix</th>
+                                            <th>Option</th>
                                     </tr>
                                     </thead>
                                     {{-- <ol reversed> --}}
                                     <tbody>
                                         @foreach($conemp as $conemp)
-                                        <form class="row g-2" method="post" action="/addchoice">
+                                        <form class="row g-2" method="post" action="/addchoicep">
                                             @csrf
                                             
                                        
@@ -68,11 +71,13 @@
                                             
 
                                            
-                                            <td><input name="employe_id" value="{{$conemp->employe_matricule}}" size="4"></td>                         
-                                            <td><input name="nom" value="{{$conemp->nomp}}" size="5" ></td>
-                                            <td><input name="prenom" value="{{$conemp->prenomp}}" size="5" ></td>
-                                            <td><input name="type" value="{{$conemp->type}}" size="4" ></td>
-                                            <td><input name="motif" value="{{$conemp->motif}}" size="5" ></td>
+                                            <td><input readonly name="employe_id" value="{{$conemp->employe_id}}" size="4"></td>                         
+                                            <td><input readonly name="nom" value="{{$conemp->nom}}" size="5" ></td>
+                                            <td><input readonly name="prenom" value="{{$conemp->prenom}}" size="5" ></td>
+                                            {{-- <td><input name="type" value="{{$conemp->type}}" size="4" ></td> --}}
+                                            <td><input readonly name="motif" value="{{$conemp->motif}}" size="5" ></td>
+                                            <td><input readonly name="debut" value="{{$conemp->h_debut}}" size="5" ></td>
+                                            <td><input readonly name="fin" value="{{$conemp->h_fin}}" size="5" ></td>
                                                                 <td>
                                                 <select name="choix"  id="inputState" class="form-select">
                                                     <option selected>choisir...</option>
@@ -83,7 +88,7 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary">Envoyer réponse</button>
+                                                <button class="btn btn-primary">Envoyer réponse</button> 
                                             </td>
                                         
                                         </tr>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script nonce="tmTZC0Da">__DEV__=0;CavalryLogger=window.CavalryLogger||function(a){this.lid=a,this.transition=!1,this.metric_collected=!1,this.is_detailed_profiler=!1,this.instrumentation_started=!1,this.pagelet_metrics={},this.events={},this.ongoing_watch={},this.values={t_cstart:window._cstart},this.piggy_values={},this.bootloader_metrics={},this.resource_to_pagelet_mapping={},this.initializeInstrumentation&&this.initializeInstrumentation()},CavalryLogger.prototype.setIsDetailedProfiler=function(a){this.is_detailed_profiler=a;return this},CavalryLogger.prototype.setTTIEvent=function(a){this.tti_event=a;return this},CavalryLogger.prototype.setValue=function(a,b,c,d){d=d?this.piggy_values:this.values;(typeof d[a]==="undefined"||c)&&(d[a]=b);return this},CavalryLogger.prototype.getLastTtiValue=function(){return this.lastTtiValue},CavalryLogger.prototype.setTimeStamp=CavalryLogger.prototype.setTimeStamp||function(a,b,c,d){this.mark(a);var e=this.values.t_cstart||this.values.t_start;e=d?e+d:CavalryLogger.now();this.setValue(a,e,b,c);this.tti_event&&a==this.tti_event&&(this.lastTtiValue=e,this.setTimeStamp("t_tti",b));return this},CavalryLogger.prototype.mark=typeof console==="object"&&console.timeStamp?function(a){console.timeStamp(a)}:function(){},CavalryLogger.prototype.addPiggyback=function(a,b){this.piggy_values[a]=b;return this},CavalryLogger.instances={},CavalryLogger.id=0,CavalryLogger.getInstance=function(a){typeof a==="undefined"&&(a=CavalryLogger.id);CavalryLogger.instances[a]||(CavalryLogger.instances[a]=new CavalryLogger(a));return CavalryLogger.instances[a]},CavalryLogger.setPageID=function(a){if(CavalryLogger.id===0){var b=CavalryLogger.getInstance();CavalryLogger.instances[a]=b;CavalryLogger.instances[a].lid=a;delete CavalryLogger.instances[0]}CavalryLogger.id=a},CavalryLogger.now=function(){return window.performance&&performance.timing&&performance.timing.navigationStart&&performance.now?performance.now()+performance.timing.navigationStart:new Date().getTime()},CavalryLogger.prototype.measureResources=function(){},CavalryLogger.prototype.profileEarlyResources=function(){},CavalryLogger.getBootloaderMetricsFromAllLoggers=function(){},CavalryLogger.start_js=function(){},CavalryLogger.start_js_script=function(){},CavalryLogger.done_js=function(){};CavalryLogger.getInstance().setTTIEvent("t_domcontent");CavalryLogger.prototype.measureResources=function(a,b){if(!this.log_resources)return;var c="bootload/"+a.name;if(this.bootloader_metrics[c]!==void 0||this.ongoing_watch[c]!==void 0)return;var d=CavalryLogger.now();this.ongoing_watch[c]=d;"start_"+c in this.bootloader_metrics||(this.bootloader_metrics["start_"+c]=d);b&&!("tag_"+c in this.bootloader_metrics)&&(this.bootloader_metrics["tag_"+c]=b);if(a.type==="js"){c="js_exec/"+a.name;this.ongoing_watch[c]=d}},CavalryLogger.prototype.stopWatch=function(a){if(this.ongoing_watch[a]){var b=CavalryLogger.now(),c=b-this.ongoing_watch[a];this.bootloader_metrics[a]=c;var d=this.piggy_values;a.indexOf("bootload")===0&&(d.t_resource_download||(d.t_resource_download=0),d.resources_downloaded||(d.resources_downloaded=0),d.t_resource_download+=c,d.resources_downloaded+=1,d["tag_"+a]=="_EF_"&&(d.t_pagelet_cssload_early_resources=b));delete this.ongoing_watch[a]}return this},CavalryLogger.getBootloaderMetricsFromAllLoggers=function(){var a={};Object.values(window.CavalryLogger.instances).forEach(function(b){b.bootloader_metrics&&Object.assign(a,b.bootloader_metrics)});return a},CavalryLogger.start_js=function(a){for(var b=0;b<a.length;++b)CavalryLogger.getInstance().stopWatch("js_exec/"+a[b])},CavalryLogger.start_js_script=function(a){if(!a||!a.dataset)return;CavalryLogger.start_js([a.dataset.bootloaderHash||a.dataset.bootloaderHashClient])},CavalryLogger.done_js=function(a){for(var b=0;b<a.length;++b)CavalryLogger.getInstance().stopWatch("bootload/"+a[b])},CavalryLogger.prototype.profileEarlyResources=function(a){for(var b=0;b<a.length;b++)this.measureResources({name:a[b][0],type:a[b][1]?"js":""},"_EF_")};CavalryLogger.getInstance().log_resources=true;CavalryLogger.getInstance().setIsDetailedProfiler(true);window.CavalryLogger&&CavalryLogger.getInstance().setTimeStamp("t_start");</script>
-    <title id="pageTitle">DD&MA-Solution</title><meta property="og:title" content="Connectez-vous ou inscrivez-vous" />
+    <title id="pageTitle">PGI-PAYE</title><meta property="og:title" content="Connectez-vous ou inscrivez-vous" />
     {{-- <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yb/r/hLRJ1GG_y0J.ico" /> --}}
     <link type="text/css" rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v3/yh/l/0,cross/fR5DUcsvG28.css?_nc_x=Ij3Wp8lg5Kz" data-bootloader-hash="rCyHaCY" crossorigin="anonymous" />
     <style nonce="tmTZC0Da"></style>
@@ -51,7 +51,7 @@
 
     <!-- Main style file -->
     <link rel="stylesheet" href="../../dist/css/app.min.css" type="text/css">
-    <title>DD&MA-Solution</title>
+    <title>PGI|PAYE</title>
 </head>
 <body >
     <div style="background: rgb(11, 13, 150) " class="_li" id="u_0_3_Nw">
@@ -65,25 +65,15 @@
                             <div  class="menu_login_container rfloat _ohf" data-testid="royal_login_form">
                                 <table role="presentation" cellspacing="0">
                                     <tbody>
-                                        <form id="login_form" action="/log" method="post" novalidate="1" onsubmit="">
-                                            @csrf
-                                            {{-- <input type="hidden" name="jazoest" value="2955" autocomplete="off">
-                                            <input type="hidden" name="lsd" value="AVpee9u5u9Y" autocomplete="off"> --}}
-                                        {{-- <tr>
-                                            <td class="html7magic"><label for="email">Nom</label></td>
-                                            <td class="html7magic"><label for="pass">Mot de passe</label></td></tr> --}}
-                                            <tr>
-                                                <td><input style="border-color:rgb(11, 13, 150) " type="text" name="nom" class="form-control" placeholder="Entrez votre nom"
-                                           required></td>
-                                           <td><input style="border-color:rgb(11, 13, 150) "  type="password" name="mdp" class="form-control" placeholder="Entrez votre mot de passe"
-                                            required></td>
-                                            <td><button style="background-color:gray ;border-color:rgb(11, 13, 150)" type="submit" class="btn btn-primary">Se connecter</button></td>
-                                               
+                                           
+                                           <tr>
+                                                <a href="/login"><button  type="submit" class="btn btn-primary">Se connecter en tant que personnel</button></a> -
+                                            <a href="/login-employe"><button  type="submit" class="btn btn-primary"><span>Se connecter en tant qu'utilisateur</button></a>
                                                     {{-- <td>
                                                     <button type="submit" class="btn btn-success">S'inscrire</button> 
     
                                                             </td> --}}
-                                                </tr> </form>
+                                                </tr> 
                                             </tbody>
                                         </table>
                             </div></div></div></div></div></div></div>
@@ -91,73 +81,35 @@
                                 <div  class="menu">
                                     <div class="menu-header">
                                         <a href="/" class="logo">
-                                            <img width="200" src="http://ddmatg.com/images/logo-2.png" alt="ddma">
+                                            <img width="150" src="{{ asset('logo.pgipaie.png') }}" alt="pgipaie">
                                         </a>
                                         
                                     </div></div>
-                            
-                                    <a href="/" class="logo">
-                                            </a></div><a href="/" class="logo">
-                                                <div class="container">               <h1><strong>Bienvenue à DD Management Solution</strong></h1>                     
-                                               <h3>Startup de proposition de Solution Numériques</h3>
-                                                </div>
+                                    <div class="menu-body">
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                                <div class="content ">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 bd-content">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <div style="text-align: center">
+                                                                        <div class="text-center">
 
-                                        {{-- <div class="signupBanner">
-                                            <div class="signup_bar_container">
-                                                <div class="signup_box clearfix">
-                                                    <span class="signup_box_content">
-                                                        <a role="button" class="_42ft _4jy0 signup_btn _4jy4 _4jy2 selected _51sy" href="/r.php?locale=fr_FR">S’inscrire</a>
-                                                    </span></div></div></div></div></div></div> --}}
-                                                                {{-- <u>Notice</u></i><div class="_585r _50f4">Vous devez vous connecter pour continuer.</div></div><div class="_cqq"><div class="_cqp">Se connecter à DD&MA-Solution</div><div class=""><form id="login_form" action="/log" method="post" novalidate="1" onsubmit=""><input type="hidden" name="jazoest" value="2955" autocomplete="off"><input type="hidden" name="lsd" value="AVpee9u5u9Y" autocomplete="off"><div><div class="_5jb3"><div class="_5jb4"><input type="email" class="inputtext" id="email" name="email" placeholder="Adresse e-mail ou téléphone" data-testid="royal_email" aria-label="Adresse e-mail ou téléphone"></div><div class="_5jb_"></div><div class="_5jb5"><input type="password" class="inputtext" id="pass" name="pass" placeholder="Mot de passe" data-testid="royal_pass" aria-label="Mot de passe"></div></div><div class="_70g9"><button value="1" class="_42ft _4jy0 _5jc7 _3jd8 login_form_login_button _4jy5 _4jy1 selected _51sy" id="loginbutton" data-testid="royal_login_button" type="submit">Se connecter</button></div><div class="_5jb9"></div></div><input type="hidden" autocomplete="off" name="timezone" value="0" id="u_0_5_nv"><input type="hidden" autocomplete="off" name="lgndim" value="eyJ3IjoxMzY2LCJoIjo3NjgsImF3IjoxMzY2LCJhaCI6NzI4LCJjIjoyNH0=" id="u_0_6_EH"><input type="hidden" name="lgnrnd" value="020904_nzig"><input type="hidden" id="lgnjs" name="lgnjs" value="n"><input type="hidden" autocomplete="off" name="ab_test_data" value=""><input type="hidden" autocomplete="off" id="locale" name="locale" value="fr_FR"><input type="hidden" autocomplete="off" name="guid" value=""><input type="hidden" autocomplete="off" id="prefill_contact_point" name="prefill_contact_point"><input type="hidden" autocomplete="off" id="prefill_source" name="prefill_source"><input type="hidden" autocomplete="off" id="prefill_type" name="prefill_type"></form></div><a role="button" class="_42ft _4jy0 _cqr _4jy3 _4jy2 selected _51sy mrm" href="/r.php?r=101">Créer nouveau compte</a></div></div></div></div></div> --}}
-                                                                <footer class="site-footer style-2" id="footer">
-                                                                    <div class="footer-top">
-                                                                        <div class="container">
-                                                                            <div class="row m-b30">
-                                                                                
-                                                                            <div class="row">
-                                                                                <div class="col-xl-4 col-lg-4 col-sm-8">
-                                                                                    <div class="widget widget_about">
-                                                                                        <h4 class="footer-title">Contactez nous</h4>
-                                                                                        <div class="footer-logo logo-white">
-                                                                                            <a href="index.html"><img src="images/logo-2.png" alt=""></a>
-                                                                                        </div>
-                                                                                      <div class="dz-social-icon">
-                                                                                     <a href="https://www.youtube.com/channel/UCXZ0o9v41adfhkh19eiBVug" target="_blank">Youtube</a>
-                                                                                         <a href="https://www.facebook.com/ddmasolution" target="_blank">Facebook</a>
-                                                                                         <a href="https://twitter.com/Ddmasolution" target="_blank">Twitter</a> 
-                                                                                        <a href="https://www.instagram.com/ddmasolution/" target="_blank">Instagram</a>
+                                                                             <h1><strong>Bienvenue sur le Progiciel de Gestion Intégré de Paye</strong></h1>                     
 
-                                                                                                
-                                                                                                                                                                                         </div>
-                                                                                    </div>
-                                                                                        <div class="widget widget_getintuch">
-                                                                                            <ul>
-                                                                                                
-                                                                                                <li>
-                                                                                                    <i class="flaticon-telephone"></i>
-                                                                                                    <span>+228 93 66 12 09 <br>+228 92 37 09 01</span>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <i class="flaticon-email"></i>
-                                                                                                    <span>E-mail: allservices@ddmatg.com </span>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                
-                                                                               
-                                                                            </div>
+                                                                    <h6>Au cours du siècle dernier l’informatique a connu un essor universel qui à impacter considérablement tous les secteurs d’activités. La compétitivité qui était autrefois le fruit du labeur au travail est désormais fruit de la digitalisation de l’expérience client et de la digitalisation des processus opérationnel. Dans l’objectif de faciliter le quotidien des gestionnaires de paye et d’automatiser les procédures fixes, le <a href="/" target="_blank">  Progiciel de Gestion Intégré de Paye</a> est conçu et déployé par <a href="https://ddmatg.com/"target="_blank"> DD Management Application Solution</a> une startup qui s’ambitionne de proposer des solutions numériques les plus efficaces et les plus innovante. Dans l'entreprise, la gestion de la paie est généralement de la coresponsabilité du service comptable et de la direction des ressources humaines. PGI Paye est un outil phare pour assumer cette responsabilité.</h6>
                                                                         </div>
                                                                     </div>
-                                                                    
-                                                                    <!-- footer bottom part -->
-                                                                    <div class="footer-bottom">
-                                                                        <div class="container">
-                                                                            <div>© 2022  - <a href="https://ddmatg.com/" target="_blank">DD.MA Solution</a></div>
-                                                                
-                                                                        </div>
-                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></div>
+                                                <footer class="content-footer">
+                                                                    <div style="text-align: center" class="text-center">© 2022  - Déployé par <a href="https://ddmatg.com/" target="_blank">DD.MA Solution</a></div>
+                                                                  
                                                                 </footer>
                                                                 <script src="../assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

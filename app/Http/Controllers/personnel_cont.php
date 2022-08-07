@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
+
 
 
 class personnel_cont extends Controller
@@ -30,8 +32,20 @@ class personnel_cont extends Controller
 
     }
 
-    function supprimer($id){
-        $sup=DB::table('personnel')->where('id',$id)->delete();
-        return back();
+    function supprimer(Request $req){
+        $peremp=DB::table('personnel')->where(['id'=>$req->id])->first();
+        if($peremp){
+            $peremp=DB::table('personnel')
+            ->delete();
+            if($peremp){
+                $peremp=DB::table('personnel')
+                ->get();
+                return view('user-list-personnel', compact('peremp'));
+                // return back()->with('success', 'Supprimé avec succès'); 
+            }
+        
+
+
+        }
     }
-}
+} 
